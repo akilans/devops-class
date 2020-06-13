@@ -11,5 +11,5 @@
 
 * Scenario 2 - Auto merge and conflict
     * In remote repository some commit made. How auto merge happens?. How to solve conflicts
-    * If the changes are in the same file and same line then conflict using git pull command
+    * If the changes are in the same file then conflict using git pull command
     * Else auto merge happens using git pull
