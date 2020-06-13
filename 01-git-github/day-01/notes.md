@@ -15,3 +15,4 @@
 * git checkout $B_NAME - switching to branch
 * git branch -d $B_NAME - delete branch in local repository
 * git push origin -d $B_NAME - delete branch in remote repositorys
+* git pull - pulls from remote repository and it auto merges. It will throw conflict message if any
