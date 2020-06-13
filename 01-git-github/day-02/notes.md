@@ -15,6 +15,7 @@
     * Else auto merge happens using git pull
 
 * Scenario 3 - Undo , Rollback
+    * git log - It shows all the commit history
     * git commit --amend -m "NEW COMMIT MSG" - overwrite commit message
     * git reset --soft $HASH - removes the last commit but keep the changes in staging
     * git reset $HASH - removes the commit and staging. Keeps the file in working directory
