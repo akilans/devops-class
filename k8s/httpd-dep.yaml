@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-apache
+  name: my-apache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-apache
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-apache
+    spec:
+      volumes:
+      - name: my-data
+        persistentVolumeClaim:
+            claimName: my-claim-1
+        # hostPath:
+        #   path: /data
+        #   type: Directory
+      containers:
+      - image: httpd
+        name: httpd
+        volumeMounts:
+        - mountPath: /usr/local/apache2/htdocs/
+          name: my-data
+        env:
+        - name: MY_NAME
+          value: "AKILAN"
+        - name: MY_AGE
+          value: "32"
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-password
+              key: MYSQL_PASSWORD 
+        resources:
+          requests:
+             cpu: "200m"
+             memory: "200Mi"
+          limits:
+             cpu: "300m"
+             memory: "300Mi"
+status: {}

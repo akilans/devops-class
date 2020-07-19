@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-apache
+  name: my-apache
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+    nodePort: 32000
+  selector:
+    name: akilan-apache
+  type: NodePort
+status:
+  loadBalancer: {}

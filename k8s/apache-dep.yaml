@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: my-apache
+  name: my-apache
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-apache
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: my-apache
+    spec:
+      volumes:
+      - name: my-app-data
+        hostPath:
+           path: /data
+      containers:
+      - image: httpd
+        name: httpd
+        volumeMounts:
+        - mountPath: /usr/local/apache2/htdocs/
+          name: my-app-data
+        resources: {}
+status: {}

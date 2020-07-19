@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  creationTimestamp: null
+  name: say-hello
+spec:
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: ubuntu
+        name: say-hello
+        command: ["echo","Hello Akilan"]
+        resources: {}
+      restartPolicy: Never
+status: {}
